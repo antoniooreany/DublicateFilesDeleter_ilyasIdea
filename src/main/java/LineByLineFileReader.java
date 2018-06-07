@@ -18,11 +18,9 @@ public class LineByLineFileReader {
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
-            String hashCode;
-            String relativePath;
             while (line != null) {
                 initialLinesCount++;
-                createHashMap(hashMap, line);
+                createHashMap(hashMap, line, 32, 34);
                 line = reader.readLine();
             }
         } catch (FileNotFoundException e) {
@@ -33,11 +31,11 @@ public class LineByLineFileReader {
         return initialLinesCount;
     }
 
-    private static void createHashMap(Map<String, String> hashMap, String line) {
+    private static void createHashMap(Map<String, String> hashMap, String line, int hashcodeEndIndex, int relativePathBeginIndex) {
         String hashCode;
         String relativePath;
-        hashCode = line.substring(0, 32);
-        relativePath = line.substring(34, line.length());
+        hashCode = line.substring(0, hashcodeEndIndex);
+        relativePath = line.substring(relativePathBeginIndex, line.length());
         String put = hashMap.put(hashCode, relativePath);
     }
 

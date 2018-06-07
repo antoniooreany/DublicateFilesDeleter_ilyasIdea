@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         long beginMillis = System.currentTimeMillis();
         String folder0Name = "D:\\Old_D — копия\\";
-        String md5FileName0 = "txts_test";
+        String md5FileName0 = "graphics";
         String md5FileName1 = ".md5";
         String md5FileName = md5FileName0 + md5FileName1;
         String folderName = md5FileName0 + "\\";
